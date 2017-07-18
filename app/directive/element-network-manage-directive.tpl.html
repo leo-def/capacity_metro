@@ -1,0 +1,83 @@
+
+<md-list>
+<!-- <md-input-container ng-if="vm.ring.id">
+			<label>Filtro</label>
+			<input ng-model="vm.filter">
+		</md-input-container>-->
+    <md-list-item layout="row">
+		
+		<md-icon 
+			ng-click="vm.create($event)"
+            aria-label="Adcionar" 
+            class="md-secondary">
+                add
+        </md-icon>
+		 
+		<div flex></div>
+
+		<select-input 
+			model="vm.vendor" 
+			options="vm.vendor_options" 
+			label="Fabricante" 
+			aria-label="Fabricante">
+		</select-input>
+		
+    </md-list-item>
+	
+    <md-divider></md-divider>
+	
+    <md-list-item ng-repeat="row in vm.ring.gabnets | filter: vm.filter track by $index " class="md-1-line">
+	
+			<!-- mostrar -->
+            <p ng-if="!vm.isExtended($event, $index)">
+                ( {{ row.name}} )  {{ vm.getVendorLabel()}}
+            </p>
+			<!-- editar -->
+			
+			
+			<div layout="row" ng-if="vm.isExtended($event, $index)">
+				<md-input-container class="md-block">
+					<label>Nome</label>
+					<input
+						required 
+						type="text"
+						ng-model="row.name" 
+						aria-label="Nome"/>
+				</md-input-container>
+			</div>
+			
+			<md-icon 
+				ng-click="vm.toggle($event, $index, false)" 
+				ng-if="vm.isExtended($event, $index)"
+				aria-label="Cancelar" 
+				class="md-secondary">
+                cancel
+            </md-icon>
+
+			<md-icon 
+				ng-click="vm.toggle($event, $index, true)" 
+                ng-if="!vm.isExtended($event, $index)"
+				aria-label="Editar" 
+				class="md-secondary">
+                edit
+            </md-icon>
+
+            <md-icon 
+				ng-click="vm.save($event, $index)" 
+				ng-if="vm.isExtended($event, $index)"
+				aria-label="Salvar" 
+				class="md-secondary">
+                save
+            </md-icon>
+
+            <md-icon 
+				ng-click="vm.remove($event, $index)" 
+				aria-label="Remover"
+				class="md-secondary"
+				ng-if="!vm.isExtended($event, $index)">
+                remove
+            </md-icon>
+
+    </md-list-item>
+</md-list>
+

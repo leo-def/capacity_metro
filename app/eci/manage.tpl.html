@@ -1,0 +1,117 @@
+<div flex>		
+	<md-card>
+			<md-card-title>
+				<md-card-title-text layout="row">
+					<h3>Gerenciar ECI</h3>
+					
+					<div flex></div>
+					
+					<md-input-container>
+						<label>Filtrar todos os campos</label>
+						<input ng-model="vm.filter" aria-label="Filtrar todos os campos">
+					</md-input-container>
+					
+				</md-card-title-text>
+			</md-card-title>
+					
+			<md-card-content layout="column" flex >
+				
+				<div layout="row" ng-if="vm.loading" layout-align="center center" >
+						<md-progress-circular md-mode="indeterminate" ng-if="vm.loading"></md-progress-circular>
+				</div>
+				
+				<div flex>
+					 <md-fab-toolbar 
+						md-open="vm.fab_toolbar_open"
+						md-direction="left">
+						
+						<md-fab-trigger class="align-with-text">
+							<md-button aria-label="menu" class="md-fab md-primary">
+								<md-icon>menu</md-icon>
+								<md-tooltip md-direction="left">
+									Exportar Tabela
+								</md-tooltip>
+							</md-button>
+						</md-fab-trigger>
+
+						<md-toolbar>
+							<md-fab-actions class="md-toolbar-tools">
+							
+								<table-toolbar
+										headers="vm.headers"
+										data="vm.list.data"  
+										tablename="Gerenciar ECI">
+								</table-toolbar>
+								
+							</md-fab-actions>
+						</md-toolbar>
+					</md-fab-toolbar>
+						<div layout="column">
+							<div  layout="row" flex class="table_row">
+								<div  flex layout="column" layout-align="center center">
+										<order-button field="ring_name" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container>
+											<label>Anel</label>
+											<input ng-model="vm.filter_obj.ring_name" aria-label="Anel"/>
+										</md-input-container>
+								</div>
+								<div  flex layout="column" layout-align="center center">
+										<order-button field="collect" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container>
+											<label>Concentrador</label>
+											<input ng-model="vm.filter_obj.collect" aria-label="Concentrador"/>
+										</md-input-container>
+								</div>
+								<div  flex layout="column" layout-align="center center">
+										<order-button field="mot" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container>
+											<label>Mot</label>
+											<input ng-model="vm.filter_obj.mot" aria-label="Mot"/>
+										</md-input-container>
+								</div>
+								<div  flex layout="column" layout-align="center center" >Ações</div>
+							</div>
+							<div class="table_row" layout="row" ng-repeat="row in vm.list.data  |
+														filter: vm.filter |
+														filter: vm.filter_obj |
+														orderBy: vm.orderBy.order(vm.pagename) |
+														limitTo: vm.list.limit : (vm.list.page -1) * vm.list.limit">
+									
+									<div  layout="row" layout-align="center center" flex>
+										<md-button aria-label="Expandir"
+											ng-click="vm.toChart($event, row.ring_name);"
+											ng-if="row.ring_name">
+											{{row.ring_name}}
+											<md-icon> expand_more </md-icon>
+											<md-tooltip md-direction="left">
+												Visualizar Gráficos
+											</md-tooltip>
+										</md-button>
+									</div>
+									<div   layout="row" layout-align="center center" flex>{{row.collect}}</div>
+									<div  layout="row" layout-align="center center" flex>{{row.mot}}</div>
+									<div  layout="row" layout-align="center center" flex >
+										<md-button class="md-icon-button" aria-label="Editar" ng-click="vm.edit($event, row)">
+											<md-icon> edit </md-icon>
+											<md-tooltip md-direction="left">
+												Editar
+											</md-tooltip>
+										</md-button>
+									</div>
+							</div>
+						</div>
+					<md-table-pagination 
+						md-limit="vm.list.limit" 
+						md-limit-options="[10, 25, 50, 100]"
+						md-page="vm.list.page" 
+						md-total="{{vm.list.data.length}}" 
+						md-page-select
+						md-label="{{vm.pagination.mdLabel}}">
+					</md-table-pagination>
+					<!-- md-on-paginate=""  -->
+				</div>				
+				
+			</md-card-content>
+               
+	</md-card>
+</div>

@@ -1,0 +1,39 @@
+<md-dialog aria-label="Erros">
+    <md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2>Alguns erros foram encontrados </h2>
+			<span flex></span>
+			<md-button class="md-icon-button" ng-click="vm.cancel()">
+				<md-icon aria-label="Fechar">close</md-icon>
+			</md-button>
+		</div>
+    </md-toolbar>
+
+    <md-dialog-content>
+		<div class="md-dialog-content">
+			<div layout="column" ng-repeat="error in vm.errors">
+				<h3>{{error.type}}</h3>
+				<p>
+					{{error.header}} 
+					<md-button 
+						class="md-icon-button"  
+						aria-label="mostrar" 
+						ng-click="error.more = true">
+						<md-icon>expand_more</md-icon>
+					</md-button>
+				</p>
+				<pre ng-if="error.more"> 
+					{{error.message}}
+				</pre>
+			</div>
+		</div>
+	</md-dialog-content>
+	<md-dialog-actions layout="row">
+		<md-button 
+			class="md-icon-button"  
+			aria-label="fechar" 
+			ng-click="vm.answer()">
+			<md-icon> close </md-icon>
+		</md-button>
+	</md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,51 @@
+	<div flex="20"></div>
+	<md-content flex  layout-align="center center" >
+		<form 
+			id="form_login"
+			ng-submit="vm.login()"
+			 >
+			<md-card layout-padding>
+					<md-card-title  layout="column" layout-align="center center" >
+						<md-card-title-text>
+						<h1>CM+</h1>
+						</md-card-title-text>
+					</md-card-title>
+                    <md-card-content layout="column" layout-align="center center">
+						
+						<div layout="row" ng-if="vm.loading" layout-align="center center" >
+							<md-progress-circular md-mode="indeterminate" ng-if="vm.loading"></md-progress-circular>
+						</div>
+				
+                        <h3>Bem-vindo ao Capacity Metro+</h3>
+						Plataforma da Engenharia Metro que reúne informações sobre Capacity.
+						
+
+                            <!-- user -->
+                            <md-input-container class="md-block">
+                                <label>Matricula</label>
+                                <input required type="text" name="username" ng-model="vm.user.username" aria-label="Email"/>
+                            </md-input-container>
+
+                            <!-- pass -->
+                            <md-input-container class="md-block">
+                                <label>Senha</label>
+                                <input required type="password" name="password" ng-model="vm.user.password" aria-label="password"/>
+                            </md-input-container>
+							
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button   
+							class="md-icon-button" 
+							type="submit"
+							aria-label="Realizar login">
+							<md-icon> done </md-icon>
+							<md-tooltip md-direction="left">
+								Realizar login
+							</md-tooltip>
+						</md-button>
+                    </md-card-actions>
+               </md-card>
+		</form>
+	</md-content>
+	
+	<div flex="20"></div>

@@ -1,0 +1,42 @@
+[
+	{
+		"date": "14-02-1993",
+		"horario": "16:30",
+		"download": "1890",
+		"upload": "780",
+        "capacity80": "80", 
+        "capacity90": "90"
+	},
+	{
+		"date": "14-02-1993",
+		"horario": "16:30",
+		"download": "2000",
+		"upload": "650",
+        "capacity80": "80", 
+        "capacity90": "90"
+	},
+	{
+		"date": "14-02-1993",
+		"horario": "16:30",
+		"download": "1100",
+		"upload": "50",
+        "capacity80": "80", 
+        "capacity90": "90"
+	},
+	{
+		"date": "14-02-1993",
+		"horario": "16:30",
+		"download": "800",
+		"upload": "100",
+        "capacity80": "80", 
+        "capacity90": "90"
+	},
+	{
+		"date": "14-02-1993",
+		"horario": "16:30",
+		"download": "1000",
+		"upload": "200",
+        "capacity80": "80", 
+        "capacity90": "90"
+	}
+]	

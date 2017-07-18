@@ -1,0 +1,20 @@
+[
+	{
+		"user_id": 1,
+		"username": "004934",
+		"name": "DENIS",
+		"privilege": 100
+	},
+	{
+		"user_id": 2,
+		"username": "123",
+		"name": "USUARIO",
+		"privilege": 100
+	},
+	{
+		"user_id": 3,
+		"username": "001",
+		"name": "ADMIN",
+		"privilege": 100
+	}
+]

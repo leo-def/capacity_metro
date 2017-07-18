@@ -1,0 +1,26 @@
+
+				<select-input
+					flex
+					model="model.account" 
+					options="vm.capacity_account_options" 
+					label="Capacity"
+					aria-label="Capacity">
+				</select-input>
+				
+				<md-input-container 
+					ng-if="vm.quantityDisabled()"
+					class="md-block" 
+					aria-label="Número de VC-4">
+					<label>Número de VC-4</label>
+					<input ng-model="model.number" disabled>
+				</md-input-container>
+				
+				<select-input
+					flex
+					layout="row"
+					model="model.number" 
+					options="vm.capacity_number_options" 
+					label="Número de VC-4" 
+					aria-label="Número de VC-4"
+					ng-if="!vm.quantityDisabled()">
+				</select-input>

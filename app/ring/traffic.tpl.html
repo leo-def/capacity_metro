@@ -1,0 +1,175 @@
+	<div flex>
+		
+		<md-card>
+			<md-card-title >
+				<md-card-title-text layout="row">
+					<h3>Capacity Anéis</h3>
+					
+					<div flex></div>
+					
+					
+					<input-string-date
+						model="vm.date_filter"
+						label="Selecione uma data">
+					</input-string-date>
+					
+					<md-input-container>
+						<label>Filtrar todos os campos</label>
+						<input ng-model="vm.filter" aria-label="Filtrar todos os campos">
+					</md-input-container>
+					
+				</md-card-title-text>
+			</md-card-title>
+					
+			<md-card-content>
+			
+					<div layout="row" ng-if="vm.loading" layout-align="center center" >
+						<md-progress-circular md-mode="indeterminate" ng-if="vm.loading"></md-progress-circular>
+					</div>
+			
+					<md-fab-toolbar 
+						md-open="vm.fab_toolbar_open"
+						md-direction="left">
+						
+						<md-fab-trigger class="align-with-text">
+							<md-button aria-label="menu" class="md-fab md-primary">
+								<md-icon>menu</md-icon>
+								<md-tooltip md-direction="left">
+									Exportar Tabela
+								</md-tooltip>
+							</md-button>
+						</md-fab-trigger>
+
+						<md-toolbar>
+							<md-fab-actions class="md-toolbar-tools">
+							
+								<table-toolbar
+									headers="vm.headers"
+									data="vm.list.data"  
+									tablename="Traffic Anéis">
+								</table-toolbar>
+								
+							</md-fab-actions>
+						</md-toolbar>
+					</md-fab-toolbar>
+					<md-table-container>
+					  <table class="main_table"
+						><!-- -select 
+						ng-model="selected" 
+						md-progress="promise"-->
+						<thead>
+							<tr>
+								<th ></th>
+								<th ></th>
+								<th ></th>
+								<th colspan="2" class="detached_column" >Download</th>
+								<th colspan="2" class="detached_column_accent" >Upload</th>
+								<th></th>
+								<th></hr>
+							</tr>
+						</thead>
+						<thead  >
+						  <tr >
+							<th >
+									<order-button field="ring_name" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Anel</label>
+										<input ng-model="vm.filter_obj.ring_name" aria-label="Anel"/>
+									</md-input-container>
+							</th>
+							<th >
+									<order-button field="vendor" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Fabricante</label>
+										<input ng-model="vm.filter_obj.vendor" aria-label="Fabricante"/>
+									</md-input-container>
+							</th>
+							<th  class="long_cell">
+									<order-button field="capacity" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Capacidade/VC4</label>
+										<input ng-model="vm.filter_obj.capacity" aria-label="Capacidade/VC4"/>
+									</md-input-container>
+							</th>
+							<th  class="detached_column">
+									<order-button field="percentil_download_mbps" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>(Mbps)</label>
+										<input ng-model="vm.filter_obj.percentil_download_mbps" aria-label="Download(Mbps)"/>
+									</md-input-container>
+							</th>
+							<th  class="detached_column">
+									<order-button field="percent_used_download" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Ocupação(%)</label>
+										<input ng-model="vm.filter_obj.percent_used_download" aria-label="Ocupação(%)"/>
+									</md-input-container>
+							</th>
+							<th  class="detached_column_accent">
+									<order-button field="percentil_upload_mbps" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>(Mbps)</label>
+										<input ng-model="vm.filter_obj.percentil_upload_mbps" aria-label="Upload(Mbps)"/>
+									</md-input-container>
+							</th>
+							<th  class="detached_column_accent">
+									<order-button field="percent_used_upload" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Ocupação(%)</label>
+										<input ng-model="vm.filter_obj.percent_used_upload" aria-label="Ocupação(%)"/>
+									</md-input-container>
+							</th>
+							<th >
+									<order-button field="problem_ring" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Falha</label>
+										<input ng-model="vm.filter_obj.problem_ring" aria-label="Falha"/>
+									</md-input-container>
+							</th>
+						  </tr>
+						</thead>
+						<tbody >
+						  <tr 
+							 
+							ng-repeat="row in vm.list.data |
+										filter: vm.filter |
+										filter: vm.filter_obj |
+										orderBy: vm.orderBy.order(vm.pagename) |
+										limitTo: vm.list.limit : (vm.list.page -1) * vm.list.limit"
+							><!-- md-auto-select  | filter: filter.search   | orderBy: query.order-->
+							<td >
+								<md-button aria-label="Expandir" 
+									ng-click="vm.toChart($event, row.ring_name);">
+									{{row.ring_name}}
+									<md-icon> expand_more </md-icon>
+									<md-tooltip md-direction="left">
+										Visualizar Gráficos
+									</md-tooltip>
+								</md-button>
+							</td>
+							<td >{{row.vendor}}</td>
+							<td  class="long_cell">{{row.capacity}}</td>
+							<td  class="detached_column">{{row.percentil_download_mbps}}</td>
+							<td  class="detached_column">{{row.percent_used_download}}</td>
+							<td  class="detached_column_accent">{{row.percentil_upload_mbps}}</td>
+							<td  class="detached_column_accent">{{row.percent_used_upload}}</td>
+							<td >{{vm.getErrorLabel(row.problem_ring)}}</td>
+						  </tr>
+						</tbody>
+					  </table>
+					</md-table-container>
+					<md-table-pagination 
+						md-limit="vm.list.limit" 
+						md-limit-options="[10, 25, 50, 100]" 
+						md-page="vm.list.page" 
+						md-total="{{vm.list.data.length}}"
+						md-page-select
+						md-label="{{vm.pagination.mdLabel}}">
+					</md-table-pagination>
+					<!-- md-on-paginate=""  -->	
+
+				
+			</md-card-content>
+               
+		</md-card>
+	</div>

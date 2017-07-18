@@ -1,0 +1,76 @@
+<md-dialog aria-label="Formulário ECI" ng-init="eci = vm.row">
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<h2 ng-if="eci.ring_name"># {{eci.ring_name.name ? eci.ring_name.name : eci.ring_name}}</h2>
+				<h2 ng-if="!eci.ring_name">Novo Eci</h2>
+				<span flex></span>
+				<md-button class="md-icon-button" ng-click="vm.cancel(eci)">
+					<md-icon aria-label="Fechar">close</md-icon>
+					<md-tooltip md-direction="right">
+						Fechar
+					</md-tooltip>
+				</md-button>
+			</div>
+		</md-toolbar>
+		
+		<md-dialog-content>
+			<div class="md-dialog-content">
+				<div layout="row" ng-if="vm.loading" layout-align="center center" >
+					<md-progress-circular md-mode="indeterminate" ng-if="vm.loading"></md-progress-circular>
+				</div>
+				<md-autocomplete
+						md-selected-item="eci.ring_name"
+						md-search-text="vm.filter.name"
+						md-items="item in vm.rings | filter: vm.filter"
+						md-item-text="item.name"
+						md-min-length="0"
+						placeholder="Escolha um anel"
+						aria-label="anel">
+						
+					<md-item-template>
+					  <span md-highlight-text="item.name" md-highlight-flags="^i">{{item.name}}</span>
+					</md-item-template>
+					
+					<md-not-found>
+						Nenhum anel encontrado
+					</md-not-found>
+				</md-autocomplete>
+			
+			
+				<!-- ring.mot -->
+				<md-input-container class="md-block" flex-gt-sm>
+					<label>Mot</label>
+					<input required name="mot"  aria-label="mot" ng-model="eci.mot" disabled/>
+				</md-input-container>
+				
+				<!-- ring.collect -->
+				<md-input-container class="md-block" flex-gt-sm>
+					<label>Concentrador</label>
+					<input required name="collect" aria-label="concentrador" ng-model="eci.collect" disabled/>
+				</md-input-container>
+				
+			</div>
+		</md-dialog-content>
+
+		<md-dialog-actions layout="row">
+			<span flex></span>
+			<md-button 
+				class="md-icon-button"  
+				aria-label="salvar" 
+				ng-click="vm.answer(eci)">
+				<md-icon> done </md-icon>
+				<md-tooltip md-direction="left">
+					Salvar
+				</md-tooltip>
+			</md-button>
+			<md-button 
+				class="md-icon-button"  
+				aria-label="salvar" 
+				ng-click="vm.cancel(eci)">
+				<md-icon> cancel </md-icon>
+				<md-tooltip md-direction="right">
+					Cancelar
+				</md-tooltip>
+			</md-button>
+		</md-dialog-actions>
+</md-dialog>

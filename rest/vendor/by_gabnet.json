@@ -1,0 +1,18 @@
+[
+	{
+		"vendor": "vendedor1",
+		"count": "15"
+	},
+	{
+		"vendor": "vendedor2",
+		"count": "10"
+	},
+	{
+		"vendor": "vendedor3",
+		"count": "20"
+	},
+	{
+		"vendor": "TOTAL",
+		"count": "45"
+	}
+]

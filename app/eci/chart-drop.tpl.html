@@ -1,0 +1,44 @@
+<div flex>
+	
+	<md-card  >
+		<md-card-title>
+			<md-card-title-text layout="row">
+				<h3>Gráficos Drop</h3>
+			</md-card-title-text>
+		</md-card-title>	
+		<md-card-content layout="column">
+			
+			<div layout="row" ng-if="vm.loading" layout-align="center center" >
+				<md-progress-circular md-mode="indeterminate" ng-if="vm.loading"></md-progress-circular>
+			</div>
+		
+			<div layout="row">
+				<hc-area-chart
+					flex
+					title = "Gráfico Semanal"
+					subtitle =  "Ocupação"
+					column_title = "Ocupação Mb/s"
+					data = "vm.week">
+				</hc-area-chart>
+			</div>
+			<div layout="row">
+				<hc-area-chart
+					flex
+					title = "Gráfico Mensal"
+					subtitle =  "Ocupação"
+					column_title = "Ocupação Mb/s"
+					data = "vm.month">
+				</hc-area-chart>
+			</div>
+			<div layout="row">
+				<hc-area-chart
+				flex
+					title = "Gráfico Anual"
+					subtitle =  "Ocupação"
+					column_title = "Ocupação Mb/s"
+					data = "vm.year">
+				</hc-area-chart>
+			</div>
+		</md-card-content>
+	</md-card>			
+</div>

@@ -1,0 +1,49 @@
+[{
+	"ring_id": 1,
+	"ring_name": "RJ565434528",
+	"drop_download": 3.17,
+	"percent_drop_cos0": 0,
+	"percent_drop_cos1": 0,
+	"percent_drop_cos2": 0,
+	"percent_drop_cos3": 0,
+	"percent_drop_cos4": 0,
+	"percent_drop_cos5": 0,
+	"percent_drop_cos6": 11.56,
+	"percent_drop_cos7": 0
+}, {
+	"ring_id": 2,
+	"ring_name": "RTHRT4565468",
+	"drop_download": 3.17,
+	"percent_drop_cos0": 0,
+	"percent_drop_cos1": 0,
+	"percent_drop_cos2": 0,
+	"percent_drop_cos3": 0,
+	"percent_drop_cos4": 0,
+	"percent_drop_cos5": 0,
+	"percent_drop_cos6": 11.56,
+	"percent_drop_cos7": 0
+}, {
+	"ring_id": 3,
+	"ring_name": "R3456HFG8",
+	"drop_download": 3.17,
+	"percent_drop_cos0": 0,
+	"percent_drop_cos1": 0,
+	"percent_drop_cos2": 0,
+	"percent_drop_cos3": 0,
+	"percent_drop_cos4": 0,
+	"percent_drop_cos5": 0,
+	"percent_drop_cos6": 11.56,
+	"percent_drop_cos7": 0
+}, {
+	"ring_id": 4,
+	"ring_name": "FGHFGH5465428",
+	"drop_download": 3.17,
+	"percent_drop_cos0": 0,
+	"percent_drop_cos1": 0,
+	"percent_drop_cos2": 0,
+	"percent_drop_cos3": 0,
+	"percent_drop_cos4": 0,
+	"percent_drop_cos5": 0,
+	"percent_drop_cos6": 11.56,
+	"percent_drop_cos7": 0
+}]

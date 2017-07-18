@@ -1,0 +1,44 @@
+	<md-card flex >
+		<md-card-title>
+			<md-card-title-text layout="row">
+				<h3>Gráficos Anéis</h3>
+			</md-card-title-text>
+		</md-card-title>	
+		<md-card-content layout="column">
+		
+			<div layout="row" ng-if="vm.loading" layout-align="center center" >
+				<md-progress-circular md-mode="indeterminate" ng-if="vm.loading"></md-progress-circular>
+			</div>
+			
+			<div layout="row">
+				<hc-line-chart
+					flex
+					title = "Gráfico Semanal"
+					subtitle =  "Ocupação"
+					filename = "{{ring_name + '- Semanal' }}"
+					column_title = "Ocupação Mb/s"
+					data = "vm.week">
+				</hc-line-chart>
+			</div>
+			<div layout="row">
+				<hc-line-chart
+					flex
+					title = "Gráfico Mensal"
+					subtitle =  "Ocupação"
+					filename = "{{ring_name + '- Mensal' }}"
+					column_title = "Ocupação Mb/s"
+					data = "vm.month">
+				</hc-line-chart>
+			</div>
+			<div layout="row">
+				<hc-line-chart
+				flex
+					title = "Gráfico Anual"
+					subtitle =  "Ocupação"
+					filename = "{{ring_name + '- Anual' }}"
+					column_title = "Ocupação Mb/s"
+					data = "vm.year">
+				</hc-line-chart>
+			</div>
+		</md-card-content>
+	</md-card>			

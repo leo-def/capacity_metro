@@ -1,0 +1,14 @@
+<md-input-container flex >
+      <label>{{vm.label}}</label>
+      <md-select 
+		name="type" 
+		ng-model="vm.value" 
+		required
+		aria-label="{{vm.label}}">
+          <md-option 
+              ng-repeat="option in vm.options track by $index"
+              ng-value="option.value" >
+				{{option.label? option.label : option.value }}
+          </md-option>
+      </md-select>
+</md-input-container>

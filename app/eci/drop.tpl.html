@@ -1,0 +1,181 @@
+
+	<div flex>
+		
+	<md-card>
+			<md-card-title >
+				<md-card-title-text layout="row">
+					<h3>Descarte ECI</h3>
+					
+					<div flex></div>
+					
+					<md-input-container>
+						<label>Filtrar todos os campos</label>
+						<input ng-model="vm.filter" aria-label="Filtrar todos os campos">
+					</md-input-container>
+					
+				</md-card-title-text>
+			</md-card-title>
+					
+			<md-card-content>		
+					
+					<div layout="row" ng-if="vm.loading" layout-align="center center" >
+						<md-progress-circular md-mode="indeterminate" ng-if="vm.loading"></md-progress-circular>
+					</div>
+					<md-table-container>
+					 <md-fab-toolbar 
+						md-open="vm.fab_toolbar_open"
+						md-direction="left">
+						
+						<md-fab-trigger class="align-with-text">
+							<md-button aria-label="menu" class="md-fab md-primary">
+								<md-icon>menu</md-icon>
+								<md-tooltip md-direction="left">
+									Exportar Tabela
+								</md-tooltip>
+							</md-button>
+						</md-fab-trigger>
+
+						<md-toolbar>
+							<md-fab-actions class="md-toolbar-tools">
+
+								<table-toolbar
+										headers="vm.headers"
+										data="vm.list.data"  
+										tablename="Descarte ECI">
+								</table-toolbar>
+								
+							</md-fab-actions>
+						</md-toolbar>
+					</md-fab-toolbar>
+					  <table class="main_table">
+						<thead  >
+							<tr >
+								<th></th>
+								<th colspan="9" class="detached_column ">Drop(%)</th>
+							</tr>
+						</thead>
+						<thead 
+							 >
+						  <tr >
+							<th >
+								
+									<order-button field="ring_name" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Anel</label>
+										<input ng-model="vm.filter_obj.ring_name" aria-label="Anel"/>
+									</md-input-container>
+								
+							</th>
+							<th  class="detached_column ">
+								
+									<order-button field="drop_download" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Drop(%)</label>
+										<input ng-model="vm.filter_obj.drop_download" aria-label="Drop(%)"/>
+									</md-input-container>
+								
+							</th>
+							<th  class="detached_column ">
+										<order-button field="percent_drop_cos0" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container>
+											<label>Cos 0</label>
+											<input ng-model="vm.filter_obj.percent_drop_cos0" aria-label="Cos 0"/>
+										</md-input-container>
+							</th>
+							<th  class="detached_column ">
+									<order-button field="percent_drop_cos1" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Cos 1</label>
+										<input ng-model="vm.filter_obj.percent_drop_cos1" aria-label="Cos 1"/>
+									</md-input-container>
+							</th>
+							<th  class="detached_column ">
+									<order-button field="percent_drop_cos2" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Cos 2</label>
+										<input ng-model="vm.filter_obj.percent_drop_cos2" aria-label="Cos 2"/>
+									</md-input-container>
+							</th>
+							<th  class="detached_column ">
+									<order-button field="percent_drop_cos3" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Cos 3</label>
+										<input ng-model="vm.filter_obj.percent_drop_cos3" aria-label="Cos 3"/>
+									</md-input-container>
+							</th>
+							<th  class="detached_column ">
+									<order-button field="percent_drop_cos4" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Cos 4</label>
+										<input ng-model="vm.filter_obj.percent_drop_cos4" aria-label="Cos 4"/>
+									</md-input-container>
+							</th>
+							<th  class="detached_column ">
+									<order-button field="percent_drop_cos5" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Cos 5</label>
+										<input ng-model="vm.filter_obj.percent_drop_cos5" aria-label="Cos 5"/>
+									</md-input-container>
+							</th>
+							<th  class="detached_column ">
+									<order-button field="percent_drop_cos6" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Cos 6</label>
+										<input ng-model="vm.filter_obj.percent_drop_cos6" aria-label="Cos 6"/>
+									</md-input-container>
+							</th>
+							<th  class="detached_column ">
+									<order-button field="percent_drop_cos7" pagename="{{vm.pagename}}"></order-button>
+									<md-input-container>
+										<label>Cos 7</label>
+										<input ng-model="vm.filter_obj.percent_drop_cos7" aria-label="Cos 7"/>
+									</md-input-container>
+							</th>
+						  </tr>
+						</thead>
+						<tbody md-body>
+						  <tr 
+							 
+							ng-repeat="row in vm.list.data |
+										filter: vm.filter |
+										filter: vm.filter_obj |
+										orderBy: vm.orderBy.order(vm.pagename) |
+										limitTo: vm.list.limit : (vm.list.page -1) * vm.list.limit">
+							<td >
+								<md-button aria-label="Expandir" 
+									ng-click="vm.toDropChart($event, row.ring_name);"
+									ng-if="row.ring_name">
+									{{row.ring_name}}
+									<md-icon> expand_more </md-icon>
+									<md-tooltip md-direction="left">
+										Visualizar Gráficos
+									</md-tooltip>
+								</md-button>
+							</td>
+							<td  class="detached_column ">{{row.drop_download}}</td>
+							<td  class="detached_column ">{{row.percent_drop_cos0}}</td>
+							<td  class="detached_column ">{{row.percent_drop_cos1}}</td>
+							<td  class="detached_column ">{{row.percent_drop_cos2}}</td>
+							<td  class="detached_column ">{{row.percent_drop_cos3}}</td>
+							<td  class="detached_column ">{{row.percent_drop_cos4}}</td>
+							<td  class="detached_column ">{{row.percent_drop_cos5}}</td>
+							<td  class="detached_column ">{{row.percent_drop_cos6}}</td>
+							<td  class="detached_column ">{{row.percent_drop_cos7}}</td>
+						  </tr>
+						</tbody>
+					  </table>
+					</md-table-container>
+					<md-table-pagination 
+						md-limit="vm.list.limit" 
+						md-limit-options="[10, 25, 50, 100]" 
+						md-page="vm.list.page" 
+						md-total="{{vm.list.data.length}}" 
+						md-page-select
+						md-label="{{vm.pagination.mdLabel}}">
+					</md-table-pagination>
+					<!-- md-on-paginate=""  -->	
+
+			</md-card-content>
+               
+		</md-card>
+	</div>

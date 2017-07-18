@@ -1,0 +1,17 @@
+
+		<md-input-container class="md-block">
+			<label>Nome</label>
+			<input
+				required 
+				type="text"
+				ng-model="vm.model.name" 
+				aria-label="Nome"/>
+		</md-input-container>
+		
+		<select-input 
+			model="vm.model.vendor" 
+			options="vm.vendor_options" 
+			label="Fabricante" 
+			aria-label="Fabricante">
+		</select-input>
+

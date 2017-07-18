@@ -1,0 +1,285 @@
+
+	<div flex>
+		
+		<md-card >
+			<md-card-title >
+				<md-card-title-text layout="row">
+					<h3>Capacity Anéis ECI</h3>
+					
+					<div flex></div>
+					
+					<md-input-container>
+						<label>Filtrar todos os campos</label>
+						<input ng-model="vm.filter" aria-label="Filtrar todos os campos">
+					</md-input-container>
+					
+				</md-card-title-text>
+			</md-card-title>
+					
+			<md-card-content>		
+					<div layout="row" ng-if="vm.loading" layout-align="center center" >
+						<md-progress-circular md-mode="indeterminate" ng-if="vm.loading"></md-progress-circular>
+					</div>
+					<md-fab-toolbar 
+						md-open="vm.fab_toolbar_open"
+						md-direction="left">
+						
+						<md-fab-trigger class="align-with-text">
+							<md-button aria-label="menu" class="md-fab md-primary">
+								<md-icon>menu</md-icon>
+								<md-tooltip md-direction="left">
+									Exportar Tabela
+								</md-tooltip>
+							</md-button>
+						</md-fab-trigger>
+
+						<md-toolbar>
+							<md-fab-actions class="md-toolbar-tools">
+							
+								<table-toolbar
+										headers="vm.headers"
+										data="vm.list.data"  
+										tablename="Gerenciar ECI">
+								</table-toolbar>
+								
+							</md-fab-actions>
+						</md-toolbar>
+					</md-fab-toolbar>
+					<md-table-container>
+					<table class="main_table">
+						<thead  >
+							<tr>
+								<th></th>
+								<th></th>
+								<th colspan="2" class="detached_column">Download</th>
+								<th></th>
+								<th colspan="8" class="detached_column">Mbps</th>
+								<th colspan="8" class="detached_column_accent">Packets</th>
+								<th colspan="2" class="detached_column"> Upload</th>
+							</tr>
+						</thead>
+						<thead  >
+							<tr>
+								<th  class="short_cell">
+										<order-button field="ring_name" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Anel</label>
+											<input ng-model="vm.filter_obj.ring_name" aria-label="Anel"/>
+										</md-input-container>
+								</th>
+								<th >
+										<order-button field="capacity" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Capacidade/VC4</label>
+											<input ng-model="vm.filter_obj.capacity" aria-label="Capacidade/VC4"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column">
+										<order-button field="percentil_download_mbps" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>(Mbps)</label>
+											<input ng-model="vm.filter_obj.percentil_download_mbps" aria-label="Download(Mbps)"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column" >
+										<order-button field="percent_used_download" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Ocupação(%)</label>
+											<input ng-model="vm.filter_obj.percent_used_download" aria-label="Ocupação Download(%)"/>
+										</md-input-container>
+								</th>
+								<th  class="short_cell">
+										<order-button field="drop_download" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Drop(%)</label>
+											<input ng-model="vm.filter_obj.drop_download" aria-label="Drop(%)"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column short_cell">
+										<order-button field="percentil_download_cos0_mbps" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 0</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos0_mbps" aria-label="Cos 0"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column short_cell">
+										<order-button field="percentil_download_cos1_mbps" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 1</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos1_mbps" aria-label="Cos 1"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column short_cell">
+										<order-button field="percentil_download_cos2_mbps" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 2</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos2_mbps" aria-label="Cos 2"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column short_cell">
+										<order-button field="percentil_download_cos3_mbps" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 3</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos3_mbps" aria-label="Cos 3"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column short_cell">
+										<order-button field="percentil_download_cos4_mbps" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 4</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos4_mbps" aria-label="Cos 4"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column short_cell">
+										<order-button field="percentil_download_cos5_mbps" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 5</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos5_mbps" aria-label="Cos 5"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column short_cell">
+										<order-button field="percentil_download_cos6_mbps" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 6</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos6_mbps" aria-label="Cos 6"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column short_cell">
+										<order-button field="percentil_download_cos7_mbps" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 7</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos7_mbps" aria-label="Cos 7"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column_accent short_cell">
+										<order-button field="percentil_download_cos0_packets" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 0</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos0_packets" aria-label="Cos 0"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column_accent short_cell">
+										<order-button field="percentil_download_cos1_packets" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 1</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos1_packets" aria-label="Cos 1"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column_accent short_cell">
+										<order-button field="percentil_download_cos2_packets" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 2</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos2_packets" aria-label="Cos 2"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column_accent short_cell">
+										<order-button field="percentil_download_cos3_packets" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 3</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos3_packets" aria-label="Cos 3"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column_accent short_cell">
+										<order-button field="percentil_download_cos4_packets" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 4</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos4_packets" aria-label="Cos 4"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column_accent short_cell">
+										<order-button field="percentil_download_cos5_packets" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 5</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos5_packets" aria-label="Cos 5"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column_accent short_cell">
+										<order-button field="ring_name" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 6</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos6_packets" aria-label="Cos 6"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column_accent short_cell">
+										<order-button field="ring_name" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Cos 7</label>
+											<input ng-model="vm.filter_obj.percentil_download_cos6_packets" aria-label="Cos 7"/>
+										</md-input-container>
+								</th>							
+								<th  class="detached_column">
+										<order-button field="percentil_upload_mbps" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>(Mbps)</label>
+											<input ng-model="vm.filter_obj.percentil_upload_mbps" aria-label="Upload (Mbps)"/>
+										</md-input-container>
+								</th>
+								<th  class="detached_column">
+										<order-button field="percent_used_upload" pagename="{{vm.pagename}}"></order-button>
+										<md-input-container flex="noshrink">
+											<label>Ocupação (%)</label>
+											<input ng-model="vm.filter_obj.percent_used_upload" aria-label="Ocupação Upload (%)"/>
+										</md-input-container>
+								</th>
+						  </tr>
+						</thead>
+						<tbody >
+						  <tr 
+							 
+							ng-repeat="row in vm.list.data |
+									filter: vm.filter |
+									filter: vm.filter_obj |
+									orderBy: vm.orderBy.order(vm.pagename) |
+									limitTo: vm.list.limit : (vm.list.page -1) * vm.list.limit">
+							<td  class="short_cell">
+								<md-button aria-label="Expandir" 
+									ng-click="vm.toChart($event, row.ring_name);"
+									ng-if="row.ring_name">
+									{{row.ring_name}}
+									<md-icon> expand_more </md-icon>
+									<md-tooltip md-direction="left">
+										Visualizar Gráficos
+									</md-tooltip>
+								</md-button>
+							</td>
+							<td >{{row.capacity}}</td>
+							<td  class="detached_column">{{row.percentil_download_mbps}}</td>
+							<td  class="detached_column">{{row.percent_used_download}}</td>
+							<td  class="short_cell">{{row.drop_download}}</td>
+							<td  class="detached_column short_cell">{{row.percentil_download_cos0_mbps}}</td>
+							<td  class="detached_column short_cell">{{row.percentil_download_cos1_mbps}}</td>
+							<td  class="detached_column short_cell">{{row.percentil_download_cos2_mbps}}</td>
+							<td  class="detached_column short_cell">{{row.percentil_download_cos3_mbps}}</td>
+							<td  class="detached_column short_cell">{{row.percentil_download_cos4_mbps}}</td>
+							<td  class="detached_column short_cell">{{row.percentil_download_cos5_mbps}}</td>
+							<td  class="detached_column short_cell">{{row.percentil_download_cos6_mbps}}</td>
+							<td  class="detached_column short_cell">{{row.percentil_download_cos7_mbps}}</td>
+							<td  class="detached_column_accent short_cell">{{row.percentil_download_cos0_packets}}</td>
+							<td  class="detached_column_accent short_cell">{{row.percentil_download_cos1_packets}}</td>
+							<td  class="detached_column_accent short_cell">{{row.percentil_download_cos2_packets}}</td>
+							<td  class="detached_column_accent short_cell">{{row.percentil_download_cos3_packets}}</td>
+							<td  class="detached_column_accent short_cell">{{row.percentil_download_cos4_packets}}</td>
+							<td  class="detached_column_accent short_cell">{{row.percentil_download_cos5_packets}}</td>
+							<td  class="detached_column_accent short_cell">{{row.percentil_download_cos6_packets}}</td>
+							<td  class="detached_column_accent short_cell">{{row.percentil_download_cos7_packets}}</td>
+							<td class="detached_column">{{row.percentil_upload_mbps}}</td>
+							<td class="detached_column">{{row.percent_used_upload}}</td>
+						  </tr>
+						</tbody>
+					  </table>
+					</md-table-container>
+					<md-table-pagination 
+						md-limit="vm.list.limit" 
+						md-limit-options="[10, 25, 50, 100]" 
+						md-page="vm.list.page" 
+						md-total="{{vm.list.data.length}}" 
+						md-page-select
+						md-label="{{vm.pagination.mdLabel}}">
+					</md-table-pagination>
+					<!-- md-on-paginate=""  -->	
+
+				
+			</md-card-content>
+               
+		</md-card>
+	</div>

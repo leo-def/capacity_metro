@@ -1,0 +1,46 @@
+[
+	{
+		"ring_id": 1,
+		"ring_name": "a34545345_1",
+		"vendor": "ESDFSDF",
+		"capacity": "STDFGDF/14",
+		"percentil_download_mbps": 2225,
+		"percent_used_download": 106.12,
+		"percentil_upload_mbps": 1094,
+		"percent_used_upload": 52.18,
+		"problem_ring": "Sim"
+	},
+	{
+		"ring_id": 1,
+		"ring_name": "anel_1",
+		"vendor": "34534GER",
+		"capacity": "SUMDFGDF0",
+		"percentil_download_mbps": 2000,
+		"percent_used_download": 106.12,
+		"percentil_upload_mbps": 1094,
+		"percent_used_upload": 60.18,
+		"problem_ring": "Não"
+	},
+	{
+		"ring_id": 1,
+		"ring_name": "anel_1",
+		"vendor": "DFGD45",
+		"capacity": "STDFGDF14",
+		"percentil_download_mbps": 2225,
+		"percent_used_download": 106.12,
+		"percentil_upload_mbps": 1094,
+		"percent_used_upload": 52.18,
+		"problem_ring": "Sim"
+	},
+	{
+		"ring_id": 1,
+		"ring_name": "34543R",
+		"vendor": "ECDFGFGDFGD",
+		"capacity": "STGTE14",
+		"percentil_download_mbps": 2225,
+		"percent_used_download": 106.12,
+		"percentil_upload_mbps": 1094,
+		"percent_used_upload": 52.18,
+		"problem_ring": "Sim"
+	}
+]

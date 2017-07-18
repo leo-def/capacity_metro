@@ -1,0 +1,27 @@
+{
+	"id": 12,
+	"name": "ETKLBJKL3BN4K5349",
+	"capacity": {
+		"account": "LEFNJKLSL",
+		"number": 3
+	},
+	"gabnets": [{
+		"id": 20,
+		"name": "ADSFSDFSDF0",
+		"vendor": "54JHB4"
+	}, {
+		"id": 21,
+		"name": "ADSDFSDF30",
+		"vendor": "ASDFSDFSDFSEL"
+	}],
+	"headend": {
+		"id": 30,
+		"name": "DSDFSD50",
+		"vendor": "SDFSDFSDFSD"
+	},
+	"collect": {
+		"id": 45,
+		"name": "ADSDFSDF0",
+		"vendor": "SDFSDFSDFSD"
+	}
+}
